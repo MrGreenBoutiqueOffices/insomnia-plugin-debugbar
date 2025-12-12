@@ -1,5 +1,5 @@
 {
-  "name": "insomnia-plugin-debugbar",
+  "name": "@net-os/insomnia-plugin-debugbar",
   "version": "1.0.0",
   "author": {
     "email": "rick.bongers@net-os.com",
@@ -9,12 +9,12 @@
     "name": "debugbar",
     "description": "Get a debugbar with detailed information about requests and responses.",
     "displayName": "Debugbar Plugin",
-    "description": "The debugbar plugin renders debugbar meta data.",
     "publisher": {
-      "name": "Rick Bongers",
+      "name": "Rick Bongers"
     },
 
     "unlisted": false
   },
+  "private": false,
   "main": "main.js"
 }

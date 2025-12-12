@@ -1,0 +1,23 @@
+name: Publish to NPM workspace file
+on:
+  release:
+    types: [created]
+jobs:
+  publish-frontend:
+    name: Publishing the frontend 🚢📦
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check package version
+        uses: technote-space/package-version-check-action@v1
+        with:
+          COMMIT_DISABLED: 1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: |
+          npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
+          npm publish --access public
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
